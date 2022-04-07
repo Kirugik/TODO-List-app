@@ -1,8 +1,11 @@
-<h2>{{ title }}</h2>
-<input type="text" placeholder="New task" #task> 
-<button (click)="addNewTask(task.value)">Add Task</button>
+<div class="container">
+  <h2>{{ title }}</h2>
+  <input type="text" placeholder="New task" #task> 
+  <textarea name="task-description" id="task-description" rows="4" placeholder="Task description"></textarea>
+  <button (click)="addNewTask(task.value)">Add Task</button>
 
-<!-- displaying the list of tasks -->
-<ul *ngFor="let task of taskList">
-  <li>{{ task.name }} <button (click)="deleteTask(task.id)">Delete Task</button></li>
-</ul>
+  <!-- displaying the task list -->
+  <ul *ngFor="let task of taskList">
+    <li>{{ task.name }} <button [ngStyle]="{ 'background-color': 'red' }" (click)="deleteTask(task.id)">Delete Task</button></li>
+  </ul>
+</div>
